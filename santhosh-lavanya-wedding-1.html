@@ -1923,7 +1923,11 @@
       --maroon-surface: #105b43;
       --maroon-card: #073d30;
     }
-    body { background: #034332; }
+
+    body {
+      background: #034332;
+    }
+
     .floral-backdrop {
       position: fixed;
       inset: 0;
@@ -1938,31 +1942,76 @@
       transform: scale(1.035);
       transition: opacity 1.5s ease, transform 2.2s ease;
     }
-    body.invitation-open .floral-backdrop { opacity: 1; transform: scale(1); }
-    .opening-screen { background: #032a22; }
+
+    body.invitation-open .floral-backdrop {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .opening-screen {
+      background: #032a22;
+    }
+
     .opening-door {
       background: radial-gradient(circle at center, #105b43 0%, #032a22 70%, #021c17 100%);
     }
-    .monogram-container, .temple-arch-container, .ornate-card {
-      background: radial-gradient(ellipse at 50% 15%, rgba(14,79,57,.94), rgba(2,35,27,.96));
+
+    .monogram-container,
+    .temple-arch-container,
+    .ornate-card {
+      background: radial-gradient(ellipse at 50% 15%, rgba(14, 79, 57, .94), rgba(2, 35, 27, .96));
     }
-    .sound-toggle-btn, .btn-outline { background: rgba(3,42,34,.9); }
-    .btn-outline:hover, .btn-outline:focus-visible { background: #105b43; }
-    #mainContent { padding-top: clamp(100px, 18vw, 210px); }
-    #mainContent > section > .container { max-width: 1040px; }
+
+    .sound-toggle-btn,
+    .btn-outline {
+      background: rgba(3, 42, 34, .9);
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus-visible {
+      background: #105b43;
+    }
+
+    #mainContent {
+      padding-top: clamp(100px, 18vw, 210px);
+    }
+
+    #mainContent>section>.container {
+      max-width: 1040px;
+    }
+
     .reveal-on-open {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity .9s ease, transform .9s cubic-bezier(.2,.65,.3,1);
+      transition: opacity .9s ease, transform .9s cubic-bezier(.2, .65, .3, 1);
     }
-    .reveal-on-open.is-visible { opacity: 1; transform: translateY(0); }
+
+    .reveal-on-open.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 600px) {
-      .floral-backdrop { background-size: cover; }
-      #mainContent > section > .container { padding-inline: 20px; }
+      .floral-backdrop {
+        background-size: cover;
+      }
+
+      #mainContent>section>.container {
+        padding-inline: 20px;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      .floral-backdrop, .reveal-on-open { transition: none; transform: none; }
-      .reveal-on-open { opacity: 1; }
+
+      .floral-backdrop,
+      .reveal-on-open {
+        transition: none;
+        transform: none;
+      }
+
+      .reveal-on-open {
+        opacity: 1;
+      }
     }
 
     /* Readable profile panels matching the existing romantic story card. */
@@ -1970,20 +2019,25 @@
       position: relative;
       min-width: 0;
       padding: clamp(24px, 4vw, 44px);
-      background: radial-gradient(ellipse at 50% 15%, rgba(14,79,57,.94), rgba(2,35,27,.96));
-      border: 1px solid rgba(212,175,55,.65);
+      background: radial-gradient(ellipse at 50% 15%, rgba(14, 79, 57, .94), rgba(2, 35, 27, .96));
+      border: 1px solid rgba(212, 175, 55, .65);
       border-radius: 8px;
-      box-shadow: 0 12px 36px rgba(0,0,0,.4);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, .4);
     }
+
     .profile-content::before {
       content: "";
       position: absolute;
       inset: 7px;
-      border: 1px solid rgba(212,175,55,.25);
+      border: 1px solid rgba(212, 175, 55, .25);
       border-radius: 4px;
       pointer-events: none;
     }
-    .profile-content .person-name { overflow-wrap: anywhere; color: #F3D995; }
+
+    .profile-content .person-name {
+      overflow-wrap: anywhere;
+      color: #F3D995;
+    }
   </style>
 </head>
 
@@ -2607,7 +2661,7 @@
       },
       complimentsFrom: "Relatives & Friends",
       blessingHeader: "|| Sri Dhurupathi Amman Thunai ||",
-      audioUrl: "Muthal-Kanave-Bgm-Tamil-Ringtone.mp3"
+      audioUrl: "assets/Muthal-Kanave-Bgm-Tamil-Ringtone.mp3"
     };
 
     /* --------------------------------------------------------------------------
@@ -2619,7 +2673,7 @@
 
     function startInvitationReveals() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-          !("IntersectionObserver" in window)) return;
+        !("IntersectionObserver" in window)) return;
       const sections = document.querySelectorAll("#mainContent > section > .container");
       sections.forEach(section => section.classList.add("reveal-on-open"));
       const observer = new IntersectionObserver(entries => {
